@@ -260,7 +260,7 @@ func (pipe *dockerPipes) Read(b []byte) (int, error) {
 		return c, nil
 	case STDERR:
 		// standard error - write it to buf.
-		pipe.stdErrBuf.Write(b)
+		pipe.stdErrBuf.Write(b[0:c])
 		return 0, nil
 	}
 
