@@ -11,7 +11,7 @@ func main() {
 	image := "docker-plugin:latest"
 	host := "tcp://192.168.99.100:2376"
 
-	client := dockerpc.Client("XXX-test", image, host)
+	client := dockerpc.NewClient("XXX-test", image, host)
 
 	err := client.Start()
 

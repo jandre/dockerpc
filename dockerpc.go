@@ -124,6 +124,10 @@ func (d *Client) StdError() string {
 	return string(d.stdErrBuf.Bytes())
 }
 
+//
+// Start a docker container, and create a connection to /attach to it and send
+// and receive RPC commands.
+//
 func (d *Client) Start() (err error) {
 
 	path := os.Getenv("DOCKER_CERT_PATH")
@@ -211,6 +215,8 @@ type dockerPipes struct {
 
 func (pipe *dockerPipes) Read(b []byte) (int, error) {
 	// try to read n bytes from the connection
+	// this is the Docker header as described here:
+	// https://docs.docker.com/reference/api/docker_remote_api_v1.20/#attach-to-a-container
 	if pipe.bytesRemaining == 0 {
 		var p []byte = make([]byte, 1024)
 		c, err := pipe.conn.Read(p)
@@ -236,7 +242,9 @@ func (pipe *dockerPipes) Read(b []byte) (int, error) {
 		return 0, err
 	}
 
-	// handle if the byte array is smaller than the total size.
+	// handle if the supplied byte array is smaller than the total size.
+	// if we haven't read the full # of bytes, then on the next Read()
+	// don't try to re-read the Docker header, simply continue reading the buffer.
 	bufSize := uint32(len(b))
 
 	if bufSize < pipe.bytesRemaining {
