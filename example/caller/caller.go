@@ -38,10 +38,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Println("Plugin.SayBye", name, "Returned:", result)
+	log.Println("Plugin.SayHi", name, "Returned:", result)
 
 	// this should fail
-	err = client.Call("Plugin.SayBye", name, &result)
+	err = client.Call("Plugin.SayHi2", name, &result)
 
 	log.Print(client.StdError())
 	if err != nil {
