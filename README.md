@@ -131,5 +131,5 @@ $ ./caller
 
 ## Credits
 
-  * [github.com/natefinch/pie](github.com/natefinch/pie)
-  * [github.com/fsouza/go-dockerclient](githubc.om/fsouza/go-dockerclient) (for queryString function) 
+  * [github.com/natefinch/pie](https://github.com/natefinch/pie)
+  * [github.com/fsouza/go-dockerclient](https://github.com/fsouza/go-dockerclient) (for queryString function) 
