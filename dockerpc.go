@@ -115,6 +115,14 @@ func (d *Client) AttachStreamingContainer(opts docker.AttachToContainerOptions) 
 }
 
 // Call calls a method on the RPC server running on the client.
+//
+// `args` provide the arguments to the RPC call, results are stored in `reply`.
+//
+// Returns an error if it fails.
+//
+// At the end of each call, you can get the stderr log from the plugin via
+// .StdError()
+//
 func (d *Client) Call(method string, args interface{}, reply interface{}) error {
 	d.stdErrBuf.Reset()
 	return d.rpcClient.Call(method, args, reply)
@@ -259,7 +267,7 @@ func (pipe *dockerPipes) Read(b []byte) (int, error) {
 	case STDOUT:
 		return c, nil
 	case STDERR:
-		// standard error - write it to buf.
+		/ standard error - write it to buf.
 		pipe.stdErrBuf.Write(b[0:c])
 		return 0, nil
 	}
