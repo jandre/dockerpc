@@ -215,7 +215,7 @@ const (
 
 // todo close everything
 type dockerPipes struct {
-	conn           net.Conn
+	conn           io.ReadWriteCloser
 	stdErrBuf      *bytes.Buffer
 	bytesRemaining uint32
 	pipeName       byte
