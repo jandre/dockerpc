@@ -129,4 +129,7 @@ $ ./caller
  * [ ] Implement consumer plugin
  * [ ] Support unix socket connection to Docker.
 
+## Credits
 
+  * [github.com/natefinch/pie](github.com/natefinch/pie)
+  * [github.com/fsouza/go-dockerclient](githubc.om/fsouza/go-dockerclient) (for queryString function) 
