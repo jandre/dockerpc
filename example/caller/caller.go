@@ -14,6 +14,7 @@ func main() {
 	client := dockerpc.NewClient("XXX-test", image, host)
 
 	err := client.Start()
+	defer client.Close()
 
 	if err != nil {
 		log.Fatal(err)
@@ -44,7 +45,8 @@ func main() {
 
 	log.Print(client.StdError())
 	if err != nil {
-		log.Fatal(err)
+		log.Println("Error:", err)
+	} else {
+		log.Println("Plugin.SayHi2", name, "Returned:", result)
 	}
-	log.Println("Plugin.SayHi2", name, "Returned:", result)
 }
