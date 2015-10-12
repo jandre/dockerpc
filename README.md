@@ -5,7 +5,10 @@
 This project was inspired by the [pie plugin architecture](https://github.com/natefinch/pie).
 
 Like `pie`, it enables you to create an JSON-RPC plugin communication over standard in/standard out,
-however, it uses Docker containers as `pie` plugin providers.
+however, it uses Docker containers as `pie` plugin providers. 
+
+stdin/out/error is still used for RPC; however, all of the communication occurs over
+the Docker API (via the `/attach` API).
 
 Currently, only plugin `providers` are supported (not consumers) and you must run Docker on a 
 non-unix socket port.
