@@ -7,7 +7,8 @@ This project was inspired by the [pie plugin architecture](https://github.com/na
 Like `pie`, it enables you to create an JSON-RPC plugin communication over standard in/standard out,
 however, it uses Docker containers as `pie` plugin providers.
 
-Currently, only plugin `providers` are supported (not consumers).
+Currently, only plugin `providers` are supported (not consumers) and run Docker on a 
+non-unix socket port.
 
 ## Installation
 
@@ -94,6 +95,8 @@ service via Docker. The example will execute the 'Plugin.SayHi' method in the co
 
   ```go
   image := "docker-plugin:latest"
+  host := "tcp://127.0.0.1:4500"
+  name := "my-container-name"
   client := dockerpc.NewClient(name, image, host)
   
   ...
@@ -124,5 +127,6 @@ $ ./caller
 
  * [ ] Tests
  * [ ] Implement consumer plugin
+ * [ ] Support unix socket connection to Docker.
 
 
