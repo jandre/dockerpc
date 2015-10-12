@@ -85,21 +85,21 @@ ENTRYPOINT ["/bin/plugin"]
 
   2. Build the docker image.
 
-```bash
-docker build -t docker-plugin:latest --no-cache .
-```
+  ```bash
+  docker build -t docker-plugin:latest --no-cache .
+  ```
 
   3. In your plugin caller, use `dockerpc.NewClient` to start and connect to the RPC
 service via Docker. The example will execute the 'Plugin.SayHi' method in the container!
 
-```go
-    image := "docker-plugin:latest"
-    client := dockerpc.NewClient(name, image, host)
-
-    ...
-    var result string
-    err := client.Call("Plugin.SayHi", "Jen", &result)
-```
+  ```go
+  image := "docker-plugin:latest"
+  client := dockerpc.NewClient(name, image, host)
+  
+  ...
+  var result string
+  err := client.Call("Plugin.SayHi", "Jen", &result)
+  ```
 
 ## Example
 
