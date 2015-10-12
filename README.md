@@ -17,7 +17,7 @@ go get github.com/jandre/dockerpc
 
 ## How to use
 
- 1. Put your `pie` plugin provider in a Docker container as the entrypoint.  
+  1. Put your `pie` plugin provider in a Docker container as the entrypoint.  
 
  Example `plugin.go`:
  ```go
@@ -83,13 +83,13 @@ RUN cp bin/plugin /bin
 ENTRYPOINT ["/bin/plugin"]
  ```
 
- 2. Build the docker image.
+  2. Build the docker image.
 
 ```bash
 docker build -t docker-plugin:latest --no-cache .
 ```
 
- 3. In your plugin caller, use `dockerpc.NewClient` to start and connect to the RPC
+  3. In your plugin caller, use `dockerpc.NewClient` to start and connect to the RPC
 service via Docker. The example will execute the 'Plugin.SayHi' method in the container!
 
 ```go
@@ -100,7 +100,6 @@ service via Docker. The example will execute the 'Plugin.SayHi' method in the co
     var result string
     err := client.Call("Plugin.SayHi", "Jen", &result)
 ```
-
 
 ## Example
 
