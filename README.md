@@ -7,7 +7,7 @@ This project was inspired by the [pie plugin architecture](https://github.com/na
 Like `pie`, it enables you to create an JSON-RPC plugin communication over standard in/standard out,
 however, it uses Docker containers as `pie` plugin providers.
 
-Currently, only plugin `providers` are supported (not consumers) and run Docker on a 
+Currently, only plugin `providers` are supported (not consumers) and you must run Docker on a 
 non-unix socket port.
 
 ## Installation
