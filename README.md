@@ -116,12 +116,14 @@ $ ./caller
 2015/10/12 08:15:01 [plugin log] 2015/10/12 12:09:23 got call for SayHi with name "jen"
 2015/10/12 08:15:01 Plugin.SayHi jen Returned: Hi jen
 2015/10/12 08:15:01 [plugin log] 2015/10/12 12:09:23 got call for SayHi with name "bob"
-2015/10/12 08:15:01 Plugin.SayBye bob Returned: Hi bob
+2015/10/12 08:15:01 Plugin.SayHi bob Returned: Hi bob
 2015/10/12 08:15:01
-2015/10/12 08:15:01 Error: rpc: can't find method Plugin.SayBye
+2015/10/12 08:15:01 Error: rpc: can't find method Plugin.SayHi2
 ``` 
 
 ## TODO
 
+ * [ ] Tests
+ * [ ] Implement consumer plugin
 
 
