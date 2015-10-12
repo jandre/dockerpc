@@ -93,8 +93,10 @@ ENTRYPOINT ["/bin/plugin"]
   docker build -t docker-plugin:latest --no-cache .
   ```
 
-  3. In your plugin caller, use `dockerpc.NewClient` to start and connect to the RPC
-service via Docker. The example will execute the 'Plugin.SayHi' method in the container!
+  3. In your plugin caller, use `dockerpc.NewClient` to start the `docker-plugin` container
+  and connect to the RPC service via Docker's API. 
+ 
+  The example below will execute the 'Plugin.SayHi' method in the container!
 
   ```go
   image := "docker-plugin:latest"
